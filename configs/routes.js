@@ -1,5 +1,10 @@
 module.exports = {
-  one: {
+  home: {
+    'page': 'home'
+  , 'path': '/'
+  , 'method': 'get'
+  }
+, one: {
     'page': 'one'
   , 'path': '/one'
   , 'method': 'get'

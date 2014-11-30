@@ -18,8 +18,7 @@ MenuItem = React.createClass({
     return (
       <li className={selectedClass}>
         <NavLink context={this.props.context}
-                 routeName={this.props.path}
-                 href={this.props.path}
+                 routeName={this.props.name}
         >{this.props.name}</NavLink>
       </li>
     );
