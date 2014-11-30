@@ -19,11 +19,11 @@ Main = React.createClass({
     return this.getStore( MenuStore ).getState();
   }
 , onChange: function () {
-      var state;
+    var state;
 
-      state = this.getStore( MenuStore ).getState();
+    state = this.getStore( MenuStore ).getState();
 
-      this.setState( state );
+    this.setState( state );
   }
 , render: function () {
     var
