@@ -2,24 +2,46 @@
 
 var
   React = require( 'react' )
+, NavLink = require ( 'flux-router-component' ).NavLink
 , Menu
 , MenuItem
 ;
 
 MenuItem = React.createClass({
   render: function () {
+    var selectedClass;
+
+    if (this.props.selected === this.props.name) {
+      selectedClass = 'pure-menu-selected';
+    }
+
     return (
-      <li><a href={this.props.url}>{this.props.name}</a></li>
+      <li className={selectedClass}>
+        <NavLink context={this.props.context}
+                 routeName={this.props.path}
+                 href={this.props.path}
+        >{this.props.name}</NavLink>
+      </li>
     );
   }
 });
 
 Menu = React.createClass({
   render: function () {
-    var menuItems;
+    var
+      context = this.props.context
+    , pages = this.props.pages
+    , selected = this.props.selected
+    , menuItems
+    ;
 
-    menuItems = this.props.menuItems.map( function ( menuItem, idx ) {
-      return <MenuItem key={'menuitem-' + idx} name={menuItem.name} url={menuItem.url} />;
+    menuItems = Object.keys(pages).map( function ( name, idx ) {
+      return <MenuItem context={context}
+                       key={'menuitem-' + name + idx}
+                       name={pages[name].page}
+                       path={pages[name].path}
+                       selected={selected}
+             />;
     });
 
     return (
