@@ -59,6 +59,7 @@ server.use( function ( req, res, next ) {
       })
     );
 
+    res.write( '<!doctype html>' );
     res.write( html );
     res.end();
   });
