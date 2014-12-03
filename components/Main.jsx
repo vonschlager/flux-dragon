@@ -13,12 +13,14 @@ var
 Main = React.createClass({
   mixins: [ RouterMixin, StoreMixin ]
 , statics: {
-    storeListeners: [ MenuStore ]
+    storeListeners: {
+      onMenuStoreChange: [ MenuStore ]
+    }
   }
 , getInitialState: function () {
     return this.getStore( MenuStore ).getState();
   }
-, onChange: function () {
+, onMenuStoreChange: function () {
     var state;
 
     state = this.getStore( MenuStore ).getState();
