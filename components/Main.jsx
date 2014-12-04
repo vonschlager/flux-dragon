@@ -30,13 +30,13 @@ Main = React.createClass({
 , render: function () {
     var
       pages = this.state.pages || {}
-    , selected = this.state.page || ''
+    , page = this.state.page || ''
     ;
 
     return (
       <div>
-        <Menu context={this.props.context} selected={selected} pages={pages} />
-        <Content context={this.props.context} />
+        <Menu context={this.props.context} selected={page} pages={pages} />
+        <Content context={this.props.context} page={page} />
       </div>
     );
   }

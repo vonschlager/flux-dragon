@@ -47,9 +47,9 @@ PicasaAlbums = React.createClass({
 
     albums = albumsFeed.map( function ( album, idx ) {
       return <PicasaAlbumLink context={self.props.context}
-                          albumid={album['gphoto$id']['$t']}
-                          key={'album-' + idx}
-                          thumbnail={album['media$group']['media$thumbnail'][0].url}>
+                              albumid={album['gphoto$id']['$t']}
+                              key={'album-' + idx}
+                              thumbnail={album['media$group']['media$thumbnail'][0].url}>
              </PicasaAlbumLink>;
     });
 

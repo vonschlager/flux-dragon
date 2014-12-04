@@ -6,4 +6,5 @@ module.exports = keyMirror({
   RECEIVE_ALBUMS: null
 , RECEIVE_ALBUM: null
 , CHANGE_ROUTE_SUCCESS: null
+, CHANGE_ROUTE_FAILURE: null
 });

@@ -16,6 +16,7 @@ MenuStore = createStore({
   }
 , handlers: {
     CHANGE_ROUTE_SUCCESS: '_handleChangeRouteSuccess'
+  , CHANGE_ROUTE_FAILURE: '_handleChangeRouteFailure'
   }
 , _handleChangeRouteSuccess: function ( payload ) {
     debug('_handleChangeRouteSuccess', payload);
@@ -23,8 +24,11 @@ MenuStore = createStore({
     if ( this.page !== payload.config.page ) {
       this.page = payload.config.page;
       this.route = payload;
-      this.emit('change');
+      this.emit( 'change' );
     }
+  }
+, _handleChangeRouteFailure: function ( payload ) {
+    debug('_handleChangeRouteFailure', payload);
   }
 , getState: function () { 
     return {

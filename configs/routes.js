@@ -26,14 +26,14 @@ module.exports = {
   , menu: true
   }
 , picasaalbums: {
-    page: 'picasa'
+    page: 'albums'
   , path: '/picasa/albums'
   , method: 'get'
   , action: 'GET_PICASA_ALBUMS'
   , menu: true
   }
 , picasaalbum: {
-    page: 'picasa'
+    page: 'album'
   , path: '/picasa/album/:albumid'
   , method: 'get'
   , action: 'GET_PICASA_ALBUM'
