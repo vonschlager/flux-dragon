@@ -12,6 +12,9 @@ var
 , React = require( 'react' )
 , htmlComponent = require( './components/Html.jsx' )
 , HtmlComponent = React.createFactory( htmlComponent )
+, fetchrPlugin = app.getPlugin( 'FetchrPlugin' )
+, albumService = require( './services/album' )
+, albumsService = require( './services/albums' )
 ;
 
 expressState.extend( server );
@@ -19,9 +22,16 @@ server.set( 'state namespace', 'App' );
 
 server.use( '/public', express.static( __dirname + '/build' ) );
 
+fetchrPlugin.registerService( albumsService );
+fetchrPlugin.registerService( albumService );
+
+server.use(fetchrPlugin.getXhrPath(), fetchrPlugin.getMiddleware());
+
 server.use( function ( req, res, next ) {
   var
-    context = app.createContext()
+    context = app.createContext({
+      req: req // fetchr
+    })
   , _handleError
   ;
 

@@ -11,15 +11,16 @@ MenuItem = React.createClass({
   render: function () {
     var selectedClass;
 
-    if (this.props.selected === this.props.name) {
+    if (this.props.selected === this.props.page) {
       selectedClass = 'pure-menu-selected';
     }
 
     return (
       <li className={selectedClass}>
         <NavLink context={this.props.context}
-                 routeName={this.props.name}
-        >{this.props.name}</NavLink>
+                 routeName={this.props.page}
+                 href={this.props.path}
+        >{this.props.page}</NavLink>
       </li>
     );
   }
@@ -34,13 +35,15 @@ Menu = React.createClass({
     , menuItems
     ;
 
-    menuItems = Object.keys(pages).map( function ( name, idx ) {
-      return <MenuItem context={context}
-                       key={'menuitem-' + name + idx}
-                       name={pages[name].page}
-                       path={pages[name].path}
-                       selected={selected}
-             />;
+    menuItems = Object.keys( pages ).map( function ( name, idx ) {
+      if ( pages[name].menu ) {
+        return <MenuItem context={context}
+                         key={'menuitem-' + name + idx}
+                         page={pages[name].page}
+                         path={pages[name].path}
+                         selected={selected}
+               />;
+      }
     });
 
     return (

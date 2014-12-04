@@ -2,7 +2,7 @@
 
 var
   createStore = require( 'fluxible-app/utils/createStore' )
-, routes = require( '../configs/routes' )
+, routesConfig = require( '../configs/routes' )
 , debug = require( 'debug' )( 'MenuStore' )
 , MenuStore
 ;
@@ -12,10 +12,10 @@ MenuStore = createStore({
 , initialize: function ( dispatcher ) {
     this.page = null;
     this.route = null;
-    this.pages = routes;
+    this.pages = routesConfig;
   }
 , handlers: {
-    'CHANGE_ROUTE_SUCCESS': '_handleChangeRouteSuccess'
+    CHANGE_ROUTE_SUCCESS: '_handleChangeRouteSuccess'
   }
 , _handleChangeRouteSuccess: function ( payload ) {
     debug('_handleChangeRouteSuccess', payload);

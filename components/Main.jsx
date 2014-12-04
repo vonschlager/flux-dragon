@@ -5,8 +5,8 @@ var
 , Menu = require( './Menu.jsx' )
 , Content = require( './Content.jsx' )
 , MenuStore = require( '../stores/MenuStore' )
-, StoreMixin = require( 'fluxible-app').StoreMixin
-, RouterMixin = require( 'flux-router-component').RouterMixin
+, StoreMixin = require( 'fluxible-app' ).StoreMixin
+, RouterMixin = require( 'flux-router-component' ).RouterMixin
 , Main
 ;
 
@@ -36,7 +36,7 @@ Main = React.createClass({
     return (
       <div>
         <Menu context={this.props.context} selected={selected} pages={pages} />
-        <Content />
+        <Content context={this.props.context} />
       </div>
     );
   }

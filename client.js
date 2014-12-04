@@ -3,6 +3,8 @@
 var
   React = require( 'react' )
 , app = require( './app' )
+, pureCss = require( './sass/pure-min.css' )
+, sideMenuCss = require( './sass/side-menu.scss' )
 , dehydratedState = window.App
 ;
 
